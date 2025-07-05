@@ -44,18 +44,4 @@ function App() {
 function Home() {
   return (
     <>
-      <h2>Welcome to SankhyaLila</h2>
-      <p>
-        SankhyaLila (सांख्यलीला) is a digital playground for curious minds. Explore
-        the beauty of numbers, patterns, and mathematical wonder through interactive
-        visualizations.
-      </p>
-    </>
-  );
-}
-
-function NotFound() {
-  return <p>404 – Page not found</p>;
-}
-
-export default App;
+      <h2>Welcome to
