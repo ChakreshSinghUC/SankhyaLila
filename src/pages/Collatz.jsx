@@ -160,7 +160,20 @@ export default function Collatz() {
   return (
     <div style={{ padding: '2rem' }}>
       <h2>Collatz Conjecture</h2>
-      <p>Enter a number to generate and visualize its Collatz sequence, global peaks, and trend line:</p>
+      <p>
+        The <strong>Collatz Conjecture</strong>, also known as the <em>3x + 1 problem</em>, was proposed by <strong>Lothar Collatz</strong> in 1937.
+        Starting with any positive integer:
+      </p>
+      <ul>
+        <li>If it is even, divide it by 2</li>
+        <li>If it is odd, multiply by 3 and add 1</li>
+      </ul>
+      <p>Repeat the steps until you reach 1. The conjecture states that no matter the starting number, the sequence always reaches 1.</p>
+      <p>
+        Despite its simplicity, the conjecture remains unproven. Mathematician <em>Paul Erdős</em> remarked:
+        <blockquote>"Mathematics is not yet ready for such problems."</blockquote>
+      </p>
+
       <input
         type="number"
         value={input}
