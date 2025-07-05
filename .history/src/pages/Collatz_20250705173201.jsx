@@ -160,10 +160,19 @@ export default function Collatz() {
   return (
     <div style={{ padding: '2rem' }}>
       <h2>Collatz Conjecture</h2>
-      <p><strong>The Collatz Conjecture</strong> (also known as the 3x + 1 problem) was proposed by Lothar Collatz in 1937. It involves a simple rule: take any positive integer n. If n is even, divide it by 2; if n is odd, multiply it by 3 and add 1. Repeat the process with the resulting number. The conjecture asserts that this sequence will always reach 1, no matter which positive integer you start with.</p>
-      <p>This conjecture has fascinated mathematicians for decades due to its deceptively simple definition yet chaotic and unpredictable behavior. Paul Erdős famously remarked, "Mathematics is not yet ready for such problems." Despite extensive computational verification for very large numbers, no general proof or counterexample has been found.</p>
-
-      <p>Use the tool below to explore the Collatz sequence for any number, examine its peaks, and observe the trends.</p>
+      <p>
+        The <strong>Collatz Conjecture</strong>, also known as the <em>3x + 1 problem</em>, was proposed by <strong>Lothar Collatz</strong> in 1937.
+        Starting with any positive integer:
+      </p>
+      <ul>
+        <li>If it is even, divide it by 2</li>
+        <li>If it is odd, multiply by 3 and add 1</li>
+      </ul>
+      <p>Repeat the steps until you reach 1. The conjecture states that no matter the starting number, the sequence always reaches 1.</p>
+      <p>
+        Despite its simplicity, the conjecture remains unproven. Mathematician <em>Paul Erdős</em> remarked:
+        <blockquote>"Mathematics is not yet ready for such problems."</blockquote>
+      </p>
 
       <input
         type="number"
