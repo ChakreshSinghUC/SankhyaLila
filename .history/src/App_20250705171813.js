@@ -11,7 +11,6 @@ function App() {
         <nav style={{ display: 'flex', gap: '1rem' }}>
           <NavLink
             to="/"
-            end
             style={({ isActive }) => ({
               fontWeight: isActive ? 'bold' : 'normal',
               textDecoration: isActive ? 'underline' : 'none',
@@ -33,7 +32,7 @@ function App() {
 
       <main style={{ padding: '1rem 2rem' }}>
         <Routes>
-          <Route index element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/collatz" element={<Collatz />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
