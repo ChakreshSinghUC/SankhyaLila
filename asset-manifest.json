@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/SankhyaLila/static/css/main.7e0ba806.css",
+    "main.js": "/SankhyaLila/static/js/main.c571c0ad.js",
+    "static/js/453.59af7ed3.chunk.js": "/SankhyaLila/static/js/453.59af7ed3.chunk.js",
+    "index.html": "/SankhyaLila/index.html",
+    "main.7e0ba806.css.map": "/SankhyaLila/static/css/main.7e0ba806.css.map",
+    "main.c571c0ad.js.map": "/SankhyaLila/static/js/main.c571c0ad.js.map",
+    "453.59af7ed3.chunk.js.map": "/SankhyaLila/static/js/453.59af7ed3.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7e0ba806.css",
+    "static/js/main.c571c0ad.js"
+  ]
+}
