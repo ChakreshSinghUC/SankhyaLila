@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import { HashRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
 import Collatz from './pages/Collatz';
+import Goldbach from './pages/Goldbach';
 
 function App() {
   return (
@@ -28,13 +29,23 @@ function App() {
           >
             Collatz
           </NavLink>
-        </nav>
+          <NavLink
+            to="/goldbach"
+            style={({ isActive }) => ({
+              fontWeight: isActive ? 'bold' : 'normal',
+              textDecoration: isActive ? 'underline' : 'none',
+            })}
+          >
+            Goldbach
+          </NavLink>
+        </nav> {/* ✅ This was missing! */}
       </header>
 
       <main style={{ padding: '1rem 2rem' }}>
         <Routes>
           <Route index element={<Home />} />
           <Route path="/collatz" element={<Collatz />} />
+          <Route path="/goldbach" element={<Goldbach />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
