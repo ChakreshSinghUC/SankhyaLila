@@ -97,11 +97,12 @@
     height: 280px;
     overflow-x: auto;
     overflow-y: hidden;
-    background-color: #fafafa;
-    border: 1px solid #ccc;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
     border-radius: 8px;
-    padding: 0.5rem;
+    padding: 1rem;
     margin-top: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .chart-wrapper canvas {

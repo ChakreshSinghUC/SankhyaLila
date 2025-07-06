@@ -9,10 +9,8 @@ import {
   LineElement,
   Title,
   Tooltip,
-  Legend,
-  Zoom
+  Legend
 } from 'chart.js';
-import zoomPlugin from 'chartjs-plugin-zoom';
 import './Collatz.css';
 
 ChartJS.register(
@@ -23,8 +21,7 @@ ChartJS.register(
   LineElement,
   Title,
   Tooltip,
-  Legend,
-  zoomPlugin
+  Legend
 );
 
 function generateCollatzSequence(n) {
@@ -72,12 +69,13 @@ export default function Collatz() {
   const options = {
     responsive: true,
     maintainAspectRatio: false,
-    interaction: {
-      mode: 'index',
-      intersect: false
-    },
     plugins: {
       tooltip: {
+        backgroundColor: '#ffffff',
+        titleColor: '#2c3e50',
+        bodyColor: '#2c3e50',
+        borderColor: '#e2e8f0',
+        borderWidth: 1,
         callbacks: {
           label: (ctx) => `Step: ${ctx.dataIndex}, Value: ${ctx.formattedValue}`
         }
@@ -85,21 +83,15 @@ export default function Collatz() {
       legend: {
         display: true,
         labels: {
-          font: { size: 12 }
+          font: { size: 12 },
+          color: '#2c3e50'
         }
       },
       title: {
         display: true,
         text: 'Collatz Conjecture',
-        font: { size: 14 }
-      },
-      zoom: {
-        pan: { enabled: false, mode: 'xy' },
-        zoom: {
-          wheel: { enabled: false },
-          pinch: { enabled: false },
-          mode: 'xy'
-        }
+        font: { size: 14 },
+        color: '#2c3e50'
       }
     },
     scales: {
@@ -121,7 +113,7 @@ export default function Collatz() {
           font: { size: 11 }
         },
         grid: { 
-          color: '#eee',
+          color: '#e2e8f0',
           display: true
         }
       },
@@ -143,7 +135,7 @@ export default function Collatz() {
           font: { size: 11 }
         },
         grid: { 
-          color: '#eee',
+          color: '#e2e8f0',
           display: true
         }
       }
@@ -164,9 +156,15 @@ export default function Collatz() {
       {
         label: `Collatz sequence for ${input}`,
         data: sequence,
-        borderColor: 'rgb(75, 192, 192)',
-        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        borderColor: '#1e88e5',
+        backgroundColor: 'rgba(30, 136, 229, 0.1)',
         tension: 0.1,
+        borderWidth: 2,
+        pointBackgroundColor: '#1e88e5',
+        pointBorderColor: '#ffffff',
+        pointBorderWidth: 2,
+        pointRadius: 3,
+        pointHoverRadius: 5,
       },
     ],
   };
