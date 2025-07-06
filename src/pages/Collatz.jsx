@@ -72,9 +72,9 @@ export default function Collatz() {
     plugins: {
       tooltip: {
         backgroundColor: '#ffffff',
-        titleColor: '#2c3e50',
-        bodyColor: '#2c3e50',
-        borderColor: '#e2e8f0',
+        titleColor: '#8b4513',
+        bodyColor: '#8b4513',
+        borderColor: '#d4af37',
         borderWidth: 1,
         callbacks: {
           label: (ctx) => `Step: ${ctx.dataIndex}, Value: ${ctx.formattedValue}`
@@ -84,14 +84,14 @@ export default function Collatz() {
         display: true,
         labels: {
           font: { size: 12 },
-          color: '#2c3e50'
+          color: '#8b4513'
         }
       },
       title: {
         display: true,
         text: 'Collatz Conjecture',
         font: { size: 14 },
-        color: '#2c3e50'
+        color: '#b8860b'
       }
     },
     scales: {
@@ -102,6 +102,7 @@ export default function Collatz() {
         ticks: { 
           precision: 0,
           font: { size: 10 },
+          color: '#8b4513',
           callback: function(value) {
             // Ensure no negative values are displayed
             return value < 0 ? '' : value;
@@ -110,10 +111,11 @@ export default function Collatz() {
         title: {
           display: true,
           text: 'Step',
-          font: { size: 11 }
+          font: { size: 11 },
+          color: '#b8860b'
         },
         grid: { 
-          color: '#e2e8f0',
+          color: '#e6d7b8',
           display: true
         }
       },
@@ -124,6 +126,7 @@ export default function Collatz() {
         suggestedMin: 0,
         ticks: {
           font: { size: 10 },
+          color: '#8b4513',
           callback: function(value) {
             // Ensure no negative values are displayed
             return value < 0 ? '' : value;
@@ -132,10 +135,11 @@ export default function Collatz() {
         title: {
           display: true,
           text: logScale ? 'Value (log)' : 'Value',
-          font: { size: 11 }
+          font: { size: 11 },
+          color: '#b8860b'
         },
         grid: { 
-          color: '#e2e8f0',
+          color: '#e6d7b8',
           display: true
         }
       }
@@ -156,15 +160,15 @@ export default function Collatz() {
       {
         label: `Collatz sequence for ${input}`,
         data: sequence,
-        borderColor: '#1e88e5',
-        backgroundColor: 'rgba(30, 136, 229, 0.1)',
+        borderColor: '#d4af37',
+        backgroundColor: 'rgba(212, 175, 55, 0.1)',
         tension: 0.1,
-        borderWidth: 2,
-        pointBackgroundColor: '#1e88e5',
+        borderWidth: 3,
+        pointBackgroundColor: '#b8860b',
         pointBorderColor: '#ffffff',
         pointBorderWidth: 2,
-        pointRadius: 3,
-        pointHoverRadius: 5,
+        pointRadius: 4,
+        pointHoverRadius: 6,
       },
     ],
   };
