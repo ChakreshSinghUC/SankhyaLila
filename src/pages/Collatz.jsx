@@ -170,11 +170,6 @@ export default function Collatz() {
     <section className="collatz-container">
       <div className="collatz-content">
         <h2>Collatz Conjecture</h2>
-        <p><strong>The Collatz Conjecture</strong> (also known as the 3x + 1 problem) was proposed by Lothar Collatz in 1937. It involves a simple rule: take any positive integer n. If n is even, divide it by 2; if n is odd, multiply it by 3 and add 1. Repeat the process with the resulting number. The conjecture asserts that this sequence will always reach 1, no matter which positive integer you start with.</p>
-        <p>This conjecture has fascinated mathematicians for decades due to its deceptively simple definition yet chaotic and unpredictable behavior. Paul Erdős famously remarked, "Mathematics is not yet ready for such problems." Despite extensive computational verification for very large numbers, no general proof or counterexample has been found.</p>
-
-        <p>Use the tool below to explore the Collatz sequence for any number, examine its peaks, and observe the trends.</p>
-
         <div className="input-group">
           <label htmlFor="collatz-input">Enter a number:</label>
           <input
@@ -213,6 +208,12 @@ export default function Collatz() {
             <Line data={data} options={options} />
           </div>
         )}
+
+        <div className="collatz-description">
+          <p><strong>The Collatz Conjecture</strong> (also known as the 3x + 1 problem) was proposed by Lothar Collatz in 1937. It involves a simple rule: take any positive integer n. If n is even, divide it by 2; if n is odd, multiply it by 3 and add 1. Repeat the process with the resulting number. The conjecture asserts that this sequence will always reach 1, no matter which positive integer you start with.</p>
+          <p>This conjecture has fascinated mathematicians for decades due to its deceptively simple definition yet chaotic and unpredictable behavior. Paul Erdős famously remarked, "Mathematics is not yet ready for such problems." Despite extensive computational verification for very large numbers, no general proof or counterexample has been found.</p>
+          <p>Use the tool above to explore the Collatz sequence for any number, examine its peaks, and observe the trends.</p>
+        </div>
       </div>
     </section>
   );
