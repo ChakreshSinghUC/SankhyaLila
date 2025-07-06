@@ -10,8 +10,11 @@ import {
   LogarithmicScale,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  Filler,
+  Zoom
 } from 'chart.js';
+import zoomPlugin from 'chartjs-plugin-zoom';
 
 ChartJS.register(
   LineElement,
@@ -21,7 +24,9 @@ ChartJS.register(
   LogarithmicScale,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  Filler,
+  zoomPlugin
 );
 
 export default function Collatz() {
@@ -138,6 +143,21 @@ export default function Collatz() {
         display: true,
         text: 'Collatz Conjecture with Global Maxima and Trend',
         font: { size: 18 }
+      },
+      zoom: {
+        pan: {
+          enabled: true,
+          mode: 'xy'
+        },
+        zoom: {
+          wheel: {
+            enabled: true
+          },
+          pinch: {
+            enabled: true
+          },
+          mode: 'xy'
+        }
       }
     },
     scales: {
