@@ -11,8 +11,7 @@ import {
   Title,
   Tooltip,
   Legend,
-  Filler,
-  Zoom
+  Filler
 } from 'chart.js';
 import zoomPlugin from 'chartjs-plugin-zoom';
 
@@ -162,6 +161,8 @@ export default function Collatz() {
     },
     scales: {
       x: {
+        min: 0,
+        max: sequence.length > 0 ? sequence.length - 1 : undefined,
         title: {
           display: true,
           text: 'Step',
