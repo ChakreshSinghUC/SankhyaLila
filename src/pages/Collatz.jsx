@@ -45,6 +45,20 @@ export default function Collatz() {
   const [sequence, setSequence] = useState([]);
   const [logScale, setLogScale] = useState(false);
 
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    setInput(value);
+    
+    // Auto-generate sequence if input is a valid positive number
+    const n = parseInt(value);
+    if (n > 0 && !isNaN(n)) {
+      const seq = generateCollatzSequence(n);
+      setSequence(seq);
+    } else {
+      setSequence([]);
+    }
+  };
+
   const handleSubmit = () => {
     const n = parseInt(input);
     if (n > 0) {
@@ -164,7 +178,7 @@ export default function Collatz() {
           <input
             type="number"
             value={input}
-            onChange={(e) => setInput(e.target.value)}
+            onChange={handleInputChange}
             onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
             placeholder="Enter a positive integer"
             min="1"
