@@ -1,10 +1,11 @@
 /* Collatz.css */
 
 .collatz-container {
+    display: flex;
+    flex-direction: column;
     padding: 1rem;
     min-height: 100vh;
     box-sizing: border-box;
-    background-color: #fafafa;
 }
 
 .collatz-content {
@@ -12,9 +13,10 @@
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
+/* Input group for number entry and toggles */
 .input-group {
     display: flex;
     flex-wrap: wrap;
@@ -42,22 +44,22 @@
     font-size: 0.95rem;
 }
 
+/* Chart styling */
 .chart-wrapper {
     position: relative;
     width: 100%;
-    min-height: 400px;
-    background-color: white;
-    border: 1px solid #ddd;
-    padding: 1rem;
-    box-sizing: border-box;
-    border-radius: 8px;
+    height: 400px;
+    /* fixed height to prevent uncontrolled growth */
+    max-width: 100%;
+    overflow: hidden;
 }
 
 .chart-wrapper canvas {
     width: 100% !important;
-    height: auto !important;
+    height: 100% !important;
 }
 
+/* Description after plot */
 .collatz-description {
     font-size: 0.95rem;
     line-height: 1.6;
@@ -65,6 +67,7 @@
     margin-top: 2rem;
 }
 
+/* Mobile responsiveness */
 @media (max-width: 600px) {
     .input-group {
         flex-direction: column;
@@ -74,5 +77,9 @@
     .input-group input,
     .input-group button {
         width: 100%;
+    }
+
+    .input-group label {
+        justify-content: flex-start;
     }
 }
