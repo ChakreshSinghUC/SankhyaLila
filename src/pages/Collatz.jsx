@@ -159,40 +159,45 @@ export default function Collatz() {
   };
 
   return (
-    <div style={{ padding: '2rem' }}>
+    <div className="collatz-container">
       <h2>Collatz Conjecture</h2>
       <p><strong>The Collatz Conjecture</strong> (also known as the 3x + 1 problem) was proposed by Lothar Collatz in 1937. It involves a simple rule: take any positive integer n. If n is even, divide it by 2; if n is odd, multiply it by 3 and add 1. Repeat the process with the resulting number. The conjecture asserts that this sequence will always reach 1, no matter which positive integer you start with.</p>
       <p>This conjecture has fascinated mathematicians for decades due to its deceptively simple definition yet chaotic and unpredictable behavior. Paul Erdős famously remarked, "Mathematics is not yet ready for such problems." Despite extensive computational verification for very large numbers, no general proof or counterexample has been found.</p>
 
       <p>Use the tool below to explore the Collatz sequence for any number, examine its peaks, and observe the trends.</p>
 
-      <input
-        type="number"
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
-        placeholder="e.g. 27"
-      />
-      <button onClick={handleSubmit} style={{ marginLeft: '10px' }}>Plot</button>
-      <label style={{ marginLeft: '20px' }}>
+      <div className="input-group">
         <input
-          type="checkbox"
-          checked={logScale}
-          onChange={() => setLogScale(!logScale)}
+          type="number"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
+          placeholder="e.g. 27"
         />
-        &nbsp;Use log scale
-      </label>
-      <label style={{ marginLeft: '20px' }}>
-        <input
-          type="checkbox"
-          checked={showTrend}
-          onChange={() => setShowTrend(!showTrend)}
-        />
-        &nbsp;Show trend line
-      </label>
+        <button onClick={handleSubmit}>Plot</button>
+      </div>
+
+      <div className="input-group">
+        <label>
+          <input
+            type="checkbox"
+            checked={logScale}
+            onChange={() => setLogScale(!logScale)}
+          />
+          &nbsp;Use log scale
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            checked={showTrend}
+            onChange={() => setShowTrend(!showTrend)}
+          />
+          &nbsp;Show trend line
+        </label>
+      </div>
 
       {sequence.length > 0 && (
-        <div style={{ marginTop: '2rem' }}>
+        <div className="chart-wrapper">
           <p>🔺 Global Maxima: {peaks.map(p => `${p.value} (at step ${p.index})`).join(', ')}</p>
           <Line data={data} options={options} />
         </div>
