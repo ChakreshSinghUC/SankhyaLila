@@ -1,0 +1,35 @@
+<svg width="32" height="32" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- Outer circle -->
+  <circle cx="60" cy="60" r="55" fill="none" stroke="#1e88e5" stroke-width="4" opacity="0.9"/>
+  
+  <!-- Golden ratio spiral -->
+  <path d="M 60 60 Q 75 45 90 60 Q 75 75 60 75 Q 45 60 45 45 Q 60 30 75 45" 
+        fill="none" stroke="#ff6b35" stroke-width="3" opacity="0.9"/>
+  
+  <!-- Central lotus pattern -->
+  <g transform="translate(60,60)">
+    <g transform="rotate(0)">
+      <path d="M 0 0 Q 15 -8 20 0 Q 15 8 0 0" fill="#4caf50" opacity="0.8"/>
+    </g>
+    <g transform="rotate(60)">
+      <path d="M 0 0 Q 15 -8 20 0 Q 15 8 0 0" fill="#4caf50" opacity="0.8"/>
+    </g>
+    <g transform="rotate(120)">
+      <path d="M 0 0 Q 15 -8 20 0 Q 15 8 0 0" fill="#4caf50" opacity="0.8"/>
+    </g>
+    <g transform="rotate(180)">
+      <path d="M 0 0 Q 15 -8 20 0 Q 15 8 0 0" fill="#4caf50" opacity="0.8"/>
+    </g>
+    <g transform="rotate(240)">
+      <path d="M 0 0 Q 15 -8 20 0 Q 15 8 0 0" fill="#4caf50" opacity="0.8"/>
+    </g>
+    <g transform="rotate(300)">
+      <path d="M 0 0 Q 15 -8 20 0 Q 15 8 0 0" fill="#4caf50" opacity="0.8"/>
+    </g>
+  </g>
+  
+  <!-- Mathematical symbols -->
+  <text x="35" y="35" font-size="14" fill="#9c27b0" opacity="0.7" font-family="serif">π</text>
+  <text x="80" y="85" font-size="12" fill="#9c27b0" opacity="0.7" font-family="serif">φ</text>
+  <text x="25" y="85" font-size="13" fill="#9c27b0" opacity="0.7" font-family="serif">∞</text>
+</svg>
