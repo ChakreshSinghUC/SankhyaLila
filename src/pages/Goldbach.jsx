@@ -54,40 +54,46 @@ export default function Goldbach() {
 
   return (
     <div className="goldbach-container">
-      <h2>Goldbach Conjecture</h2>
-      
-      {/* Results Section - First */}
-      {message && <p className="message"><strong>{message}</strong></p>}
-
-      {pairs.length > 0 && (
-        <div className="pair-list">
-          <h4>Goldbach Pairs for {input}:</h4>
-          <ul>
-            {pairs.map(([a, b], index) => (
-              <li key={index}>{a} + {b} = {input}</li>
-            ))}
-          </ul>
+      <div className="goldbach-content">
+        <div className="header-section">
+          <h2>Goldbach Conjecture</h2>
+          
+          {/* Compact Input Controls - Top Right */}
+          <div className="compact-input-group">
+            <input
+              type="number"
+              value={input}
+              onChange={handleInputChange}
+              onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
+              placeholder="Enter even number"
+              min="4"
+              step="2"
+              className="compact-input"
+            />
+          </div>
         </div>
-      )}
 
-      {/* Input Controls - Second */}
-      <div className="input-group">
-        <input
-          type="number"
-          value={input}
-          onChange={handleInputChange}
-          onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
-          placeholder="Enter even number"
-        />
-        <button onClick={handleSubmit}>Find Pairs</button>
-      </div>
+        {/* Results Section - Shows immediately when data is available */}
+        {message && <p className="message"><strong>{message}</strong></p>}
 
-      {/* Background Information - Third */}
-      <div className="goldbach-info">
-        <p>
-          <strong>The Goldbach Conjecture</strong> proposes that every even integer greater than 2 
-          can be expressed as the sum of two prime numbers.
-        </p>
+        {pairs.length > 0 && (
+          <div className="pair-list">
+            <h4>Goldbach Pairs for {input}:</h4>
+            <ul>
+              {pairs.map(([a, b], index) => (
+                <li key={index}>{a} + {b} = {input}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {/* Background Information - Last */}
+        <div className="goldbach-info">
+          <p>
+            <strong>The Goldbach Conjecture</strong> proposes that every even integer greater than 2 
+            can be expressed as the sum of two prime numbers.
+          </p>
+        </div>
       </div>
     </div>
   );

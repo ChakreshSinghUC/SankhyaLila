@@ -1,0 +1,268 @@
+.graph-theory-container {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #8e44ad 0%, #3498db 100%);
+  padding: 0;
+  margin: 0;
+}
+
+.graph-theory-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.header-section h2 {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.compact-input-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.compact-input {
+  width: 60px;
+  padding: 8px 12px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  background: white;
+  transition: border-color 0.2s ease;
+}
+
+.compact-input:focus {
+  outline: none;
+  border-color: #8e44ad;
+}
+
+.compact-select {
+  padding: 8px 12px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  background: white;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.compact-select:focus {
+  outline: none;
+  border-color: #8e44ad;
+}
+
+.compact-slider {
+  width: 100px;
+  height: 6px;
+  background: #ddd;
+  border-radius: 3px;
+  outline: none;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.compact-slider:hover {
+  opacity: 1;
+}
+
+.compact-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: #8e44ad;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.compact-slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: #8e44ad;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+}
+
+.compact-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  color: #555;
+  cursor: pointer;
+}
+
+.compact-checkbox input[type="checkbox"] {
+  margin: 0;
+  cursor: pointer;
+}
+
+.visualization-container {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 2px solid #ddd;
+}
+
+.graph-properties {
+  background: #e8f5e8;
+  border-left: 4px solid #27ae60;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 0 8px 8px 0;
+}
+
+.graph-properties h3 {
+  margin: 0 0 15px 0;
+  color: #2c3e50;
+  font-size: 1.2rem;
+}
+
+.properties-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.property-item {
+  background: white;
+  padding: 10px 15px;
+  border-radius: 6px;
+  border: 1px solid #27ae60;
+  text-align: center;
+}
+
+.property-item strong {
+  color: #2c3e50;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.graph-description {
+  background: #e8f4f8;
+  border-left: 4px solid #3498db;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 0 8px 8px 0;
+}
+
+.graph-description p {
+  margin: 0;
+  line-height: 1.6;
+  color: #34495e;
+}
+
+.graph-theory-info {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 4px solid #8e44ad;
+}
+
+.graph-theory-info p {
+  margin: 0 0 15px 0;
+  line-height: 1.6;
+  color: #34495e;
+}
+
+.graph-theory-info ul {
+  margin: 15px 0;
+  padding-left: 20px;
+}
+
+.graph-theory-info li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+  color: #34495e;
+}
+
+.graph-theory-info strong {
+  color: #2c3e50;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .graph-theory-content {
+    margin: 10px;
+    padding: 15px;
+  }
+  
+  .header-section {
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+  }
+  
+  .header-section h2 {
+    text-align: center;
+    font-size: 1.5rem;
+  }
+  
+  .compact-input-group {
+    justify-content: center;
+  }
+  
+  .visualization-container {
+    padding: 10px;
+  }
+  
+  .properties-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+  }
+}
+
+/* iPhone specific optimizations */
+@media (max-width: 480px) {
+  .graph-theory-content {
+    margin: 5px;
+    padding: 10px;
+  }
+  
+  .compact-input {
+    width: 50px;
+    padding: 6px 8px;
+    font-size: 13px;
+  }
+  
+  .compact-select {
+    padding: 6px 8px;
+    font-size: 13px;
+  }
+  
+  .compact-slider {
+    width: 80px;
+  }
+  
+  .compact-checkbox {
+    font-size: 13px;
+  }
+  
+  .property-item {
+    padding: 8px 10px;
+  }
+  
+  .properties-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+}
