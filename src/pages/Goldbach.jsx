@@ -24,6 +24,22 @@ export default function Goldbach() {
   const [pairs, setPairs] = useState([]);
   const [message, setMessage] = useState('');
 
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    setInput(value);
+    
+    // Auto-generate pairs if input is a valid even number greater than 2
+    const n = parseInt(value);
+    if (n > 2 && n % 2 === 0 && !isNaN(n)) {
+      const foundPairs = findGoldbachPairs(n);
+      setPairs(foundPairs);
+      setMessage(`${foundPairs.length} pair(s) found for ${n}.`);
+    } else {
+      setPairs([]);
+      setMessage('');
+    }
+  };
+
   const handleSubmit = () => {
     const n = parseInt(input);
     if (n > 2 && n % 2 === 0) {
@@ -39,22 +55,8 @@ export default function Goldbach() {
   return (
     <div className="goldbach-container">
       <h2>Goldbach Conjecture</h2>
-      <p>
-        <strong>The Goldbach Conjecture</strong> proposes that every even integer greater than 2 
-        can be expressed as the sum of two prime numbers.
-      </p>
-
-      <div className="input-group">
-        <input
-          type="number"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
-          placeholder="Enter even number"
-        />
-        <button onClick={handleSubmit}>Find Pairs</button>
-      </div>
-
+      
+      {/* Results Section - First */}
       {message && <p className="message"><strong>{message}</strong></p>}
 
       {pairs.length > 0 && (
@@ -67,6 +69,26 @@ export default function Goldbach() {
           </ul>
         </div>
       )}
+
+      {/* Input Controls - Second */}
+      <div className="input-group">
+        <input
+          type="number"
+          value={input}
+          onChange={handleInputChange}
+          onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
+          placeholder="Enter even number"
+        />
+        <button onClick={handleSubmit}>Find Pairs</button>
+      </div>
+
+      {/* Background Information - Third */}
+      <div className="goldbach-info">
+        <p>
+          <strong>The Goldbach Conjecture</strong> proposes that every even integer greater than 2 
+          can be expressed as the sum of two prime numbers.
+        </p>
+      </div>
     </div>
   );
 }

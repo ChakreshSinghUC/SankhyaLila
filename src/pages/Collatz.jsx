@@ -106,9 +106,14 @@ export default function Collatz() {
       x: {
         min: 0,
         beginAtZero: true,
+        suggestedMin: 0,
         ticks: { 
           precision: 0,
-          font: { size: 10 }
+          font: { size: 10 },
+          callback: function(value) {
+            // Ensure no negative values are displayed
+            return value < 0 ? '' : value;
+          }
         },
         title: {
           display: true,
@@ -124,8 +129,13 @@ export default function Collatz() {
         type: logScale ? 'logarithmic' : 'linear',
         min: logScale ? 1 : 0,
         beginAtZero: !logScale,
+        suggestedMin: 0,
         ticks: {
-          font: { size: 10 }
+          font: { size: 10 },
+          callback: function(value) {
+            // Ensure no negative values are displayed
+            return value < 0 ? '' : value;
+          }
         },
         title: {
           display: true,
@@ -165,15 +175,24 @@ export default function Collatz() {
     <div className="collatz-container">
       <div className="collatz-content">
         <h2>Collatz Conjecture</h2>
-        <p>
-          <strong>The Collatz Conjecture</strong> states that no matter what positive integer you start with,
-          following these rules will always eventually reach 1:
-        </p>
-        <ul>
-          <li>If the number is even, divide it by 2</li>
-          <li>If the number is odd, multiply by 3 and add 1</li>
-        </ul>
+        
+        {/* Chart Section - First */}
+        {sequence.length > 0 && (
+          <>
+            <div className="chart-wrapper">
+              <Line data={data} options={options} />
+            </div>
+            <div className="collatz-description">
+              <p>
+                <strong>Sequence length:</strong> {sequence.length} steps<br />
+                <strong>Highest value:</strong> {Math.max(...sequence)}<br />
+                <strong>Starting value:</strong> {sequence[0]} → ... → <strong>Final value:</strong> {sequence[sequence.length - 1]}
+              </p>
+            </div>
+          </>
+        )}
 
+        {/* Input Controls - Second */}
         <div className="input-group">
           <input
             type="number"
@@ -194,20 +213,17 @@ export default function Collatz() {
           </label>
         </div>
 
-        {sequence.length > 0 && (
-          <>
-            <div className="chart-wrapper">
-              <Line data={data} options={options} />
-            </div>
-            <div className="collatz-description">
-              <p>
-                <strong>Sequence length:</strong> {sequence.length} steps<br />
-                <strong>Highest value:</strong> {Math.max(...sequence)}<br />
-                <strong>Starting value:</strong> {sequence[0]} → ... → <strong>Final value:</strong> {sequence[sequence.length - 1]}
-              </p>
-            </div>
-          </>
-        )}
+        {/* Background Information - Third */}
+        <div className="collatz-info">
+          <p>
+            <strong>The Collatz Conjecture</strong> states that no matter what positive integer you start with,
+            following these rules will always eventually reach 1:
+          </p>
+          <ul>
+            <li>If the number is even, divide it by 2</li>
+            <li>If the number is odd, multiply by 3 and add 1</li>
+          </ul>
+        </div>
       </div>
     </div>
   );

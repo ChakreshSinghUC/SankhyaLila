@@ -26,12 +26,26 @@
 }
 
 .message {
-    margin-top: 1rem;
+    margin-bottom: 1rem;
     color: #333;
+}
+
+.pair-list {
+    margin-bottom: 1.5rem;
 }
 
 .pair-list ul {
     padding-left: 1.5rem;
+}
+
+/* Background information section */
+.goldbach-info {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #333;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
 }
 
 @media (max-width: 600px) {
