@@ -94,10 +94,10 @@ export default function Collatz() {
         font: { size: 14 }
       },
       zoom: {
-        pan: { enabled: true, mode: 'xy' },
+        pan: { enabled: false, mode: 'xy' },
         zoom: {
-          wheel: { enabled: true },
-          pinch: { enabled: true },
+          wheel: { enabled: false },
+          pinch: { enabled: false },
           mode: 'xy'
         }
       }
@@ -174,30 +174,32 @@ export default function Collatz() {
   return (
     <div className="collatz-container">
       <div className="collatz-content">
-        <h2>Collatz Conjecture</h2>
-        
-        {/* Input Controls - First (when no data) */}
-        <div className="input-group">
-          <input
-            type="number"
-            value={input}
-            onChange={handleInputChange}
-            onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
-            placeholder="Enter a positive integer"
-            min="1"
-          />
-          <button onClick={handleSubmit}>Generate Sequence</button>
-          <label>
+        <div className="header-section">
+          <h2>Collatz Conjecture</h2>
+          
+          {/* Compact Input Controls - Top Right */}
+          <div className="compact-input-group">
             <input
-              type="checkbox"
-              checked={logScale}
-              onChange={(e) => setLogScale(e.target.checked)}
+              type="number"
+              value={input}
+              onChange={handleInputChange}
+              onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
+              placeholder="Enter number"
+              min="1"
+              className="compact-input"
             />
-            Logarithmic scale
-          </label>
+            <label className="compact-checkbox">
+              <input
+                type="checkbox"
+                checked={logScale}
+                onChange={(e) => setLogScale(e.target.checked)}
+              />
+              Log
+            </label>
+          </div>
         </div>
 
-        {/* Chart Section - Shows immediately after input when data is available */}
+        {/* Chart Section - Shows immediately when data is available */}
         {sequence.length > 0 && (
           <>
             <div className="chart-wrapper">

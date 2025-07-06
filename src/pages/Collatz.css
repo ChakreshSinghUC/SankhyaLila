@@ -18,6 +18,46 @@
     padding: 0 1rem;
 }
 
+/* Header section with title and compact input */
+.header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.header-section h2 {
+    margin: 0;
+    flex-grow: 1;
+}
+
+/* Compact input controls in top right */
+.compact-input-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.compact-input {
+    width: 100px;
+    padding: 0.3rem 0.5rem;
+    font-size: 0.9rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.compact-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+}
+
+.compact-checkbox input[type="checkbox"] {
+    margin: 0;
+}
+
 .input-group {
     display: flex;
     flex-wrap: wrap;
@@ -81,14 +121,18 @@
 
 /* Mobile tweaks */
 @media (max-width: 600px) {
-    .input-group {
+    .header-section {
         flex-direction: column;
-        align-items: stretch;
+        align-items: center;
+        gap: 1rem;
     }
 
-    .input-group input,
-    .input-group button {
-        width: 100%;
+    .compact-input-group {
+        justify-content: center;
+    }
+
+    .compact-input {
+        width: 120px;
     }
 
     .chart-wrapper {
