@@ -16,7 +16,7 @@
     gap: 1rem;
 }
 
-/* Input group for number entry and toggles */
+/* Input group */
 .input-group {
     display: flex;
     flex-wrap: wrap;
@@ -44,14 +44,14 @@
     font-size: 0.95rem;
 }
 
-/* Chart styling */
+/* Chart wrapper with fixed height */
 .chart-wrapper {
     position: relative;
     width: 100%;
     height: 400px;
-    /* fixed height to prevent uncontrolled growth */
     max-width: 100%;
     overflow: hidden;
+    margin-bottom: 2rem;
 }
 
 .chart-wrapper canvas {
@@ -59,15 +59,15 @@
     height: 100% !important;
 }
 
-/* Description after plot */
+/* Description placed clearly after chart */
 .collatz-description {
     font-size: 0.95rem;
     line-height: 1.6;
     color: #333;
-    margin-top: 2rem;
+    margin-top: 0;
 }
 
-/* Mobile responsiveness */
+/* Responsive layout */
 @media (max-width: 600px) {
     .input-group {
         flex-direction: column;
