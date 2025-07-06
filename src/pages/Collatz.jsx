@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import './Collatz.css';
 import { Line } from 'react-chartjs-2';
 import {
@@ -68,13 +68,20 @@ export default function Collatz() {
 
   const handleSubmit = () => {
     const n = parseInt(input);
-    if (!isNaN(n) && n > 0) generateSequence(n);
+    if (!isNaN(n) && n > 0) {
+      generateSequence(n);
+    } else {
+      alert("Please enter a positive number.");
+    }
   };
 
-  const peakMarkers = Array(sequence.length).fill(null);
-  peaks.forEach(p => peakMarkers[p.index] = p.value);
+  const peakMarkers = useMemo(() => {
+    const markers = Array(sequence.length).fill(null);
+    peaks.forEach(p => markers[p.index] = p.value);
+    return markers;
+  }, [sequence, peaks]);
 
-  const trendLine = computeMovingAverage(sequence, 5);
+  const trendLine = useMemo(() => computeMovingAverage(sequence, 5), [sequence]);
 
   const datasets = [
     {
@@ -113,6 +120,7 @@ export default function Collatz() {
 
   const options = {
     responsive: true,
+    maintainAspectRatio: false,
     interaction: {
       mode: 'index',
       intersect: false
@@ -159,49 +167,53 @@ export default function Collatz() {
   };
 
   return (
-    <div className="collatz-container">
-      <h2>Collatz Conjecture</h2>
-      <p><strong>The Collatz Conjecture</strong> (also known as the 3x + 1 problem) was proposed by Lothar Collatz in 1937. It involves a simple rule: take any positive integer n. If n is even, divide it by 2; if n is odd, multiply it by 3 and add 1. Repeat the process with the resulting number. The conjecture asserts that this sequence will always reach 1, no matter which positive integer you start with.</p>
-      <p>This conjecture has fascinated mathematicians for decades due to its deceptively simple definition yet chaotic and unpredictable behavior. Paul Erdős famously remarked, "Mathematics is not yet ready for such problems." Despite extensive computational verification for very large numbers, no general proof or counterexample has been found.</p>
+    <section className="collatz-container">
+      <div className="collatz-content">
+        <h2>Collatz Conjecture</h2>
+        <p><strong>The Collatz Conjecture</strong> (also known as the 3x + 1 problem) was proposed by Lothar Collatz in 1937. It involves a simple rule: take any positive integer n. If n is even, divide it by 2; if n is odd, multiply it by 3 and add 1. Repeat the process with the resulting number. The conjecture asserts that this sequence will always reach 1, no matter which positive integer you start with.</p>
+        <p>This conjecture has fascinated mathematicians for decades due to its deceptively simple definition yet chaotic and unpredictable behavior. Paul Erdős famously remarked, "Mathematics is not yet ready for such problems." Despite extensive computational verification for very large numbers, no general proof or counterexample has been found.</p>
 
-      <p>Use the tool below to explore the Collatz sequence for any number, examine its peaks, and observe the trends.</p>
+        <p>Use the tool below to explore the Collatz sequence for any number, examine its peaks, and observe the trends.</p>
 
-      <div className="input-group">
-        <input
-          type="number"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
-          placeholder="e.g. 27"
-        />
-        <button onClick={handleSubmit}>Plot</button>
-      </div>
-
-      <div className="input-group">
-        <label>
+        <div className="input-group">
+          <label htmlFor="collatz-input">Enter a number:</label>
           <input
-            type="checkbox"
-            checked={logScale}
-            onChange={() => setLogScale(!logScale)}
+            id="collatz-input"
+            type="number"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
+            placeholder="e.g. 27"
           />
-          &nbsp;Use log scale
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            checked={showTrend}
-            onChange={() => setShowTrend(!showTrend)}
-          />
-          &nbsp;Show trend line
-        </label>
-      </div>
-
-      {sequence.length > 0 && (
-        <div className="chart-wrapper">
-          <p>🔺 Global Maxima: {peaks.map(p => `${p.value} (at step ${p.index})`).join(', ')}</p>
-          <Line data={data} options={options} />
+          <button onClick={handleSubmit}>Plot</button>
         </div>
-      )}
-    </div>
+
+        <div className="input-group">
+          <label>
+            <input
+              type="checkbox"
+              checked={logScale}
+              onChange={() => setLogScale(!logScale)}
+            />
+            &nbsp;Use log scale
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              checked={showTrend}
+              onChange={() => setShowTrend(!showTrend)}
+            />
+            &nbsp;Show trend line
+          </label>
+        </div>
+
+        {sequence.length > 0 && (
+          <div className="chart-wrapper" style={{ height: '60vh' }}>
+            <p>🔺 Global Maxima: {peaks.map(p => `${p.value} (at step ${p.index})`).join(', ')}</p>
+            <Line data={data} options={options} />
+          </div>
+        )}
+      </div>
+    </section>
   );
 }
